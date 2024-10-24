@@ -29,6 +29,7 @@
             line-height: 1.6;
             padding: 1.5rem;
             min-height: 100vh;
+            position: relative;
         }
 
         .container {
@@ -211,13 +212,33 @@
             .container { padding: 1rem; }
             .buttons { grid-template-columns: 1fr; }
         }
+
+        /* Cloak button styling */
+        .cloak-btn {
+            position: absolute;
+            top: 1rem;
+            right: 4rem;
+            background-color: var(--error);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            z-index: 1001;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .cloak-btn:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1 class="title">I HATE BABYS</h1>
-            <p class="subtitle">Access web content securely through multiple proxy services</p>
+            <p class="subtitle">Dont get caught sigma</p>
         </div>
 
         <div class="input-group">
@@ -253,6 +274,9 @@
             <iframe id="outputFrame" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
         </div>
     </div>
+
+    <!-- Cloak button -->
+    <button class="cloak-btn" onclick="cloakPage()">Cloak</button>
 
     <script>
         const PROXY_SERVICES = {
@@ -417,6 +441,11 @@
                 toggleFullscreen();
             }
         });
+
+        // Cloak page function
+        function cloakPage() {
+            window.location.href = 'about:blank';
+        }
     </script>
 </body>
 </html>
